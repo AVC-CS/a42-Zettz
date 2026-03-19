@@ -16,6 +16,19 @@
 //* 	Do not accept distances of less than 10 miles or more than 3,000 miles.
 //*     These are the company's minimum and maximum shipping distances.
 
+//Input weight, distance
+//Validate: weight must be > 0 and <= 20
+//Validate: distance must be >= 10 and <= 3000
+//Determine rate:
+    //if weight <= 2: rate = 1.10
+    //else if weight <= 6: rate = 2.20
+    //else if weight <= 10: rate = 3.70
+    //else: rate = 4.80
+//Calculate price:
+    //if distance > 500: price = (distance / 500.0) * rate
+    //else: price = rate
+//Print price
+
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -34,15 +47,15 @@ int main()
     // TODO: validate input - weight must be > 0 and <= 20
     if (weight <= 0 || weight > 20)
     {
-        cout << "Invalid weight. Please enter a weight between 1 and 20 kg.\n";
-        return 1;
+        cout << "Invalid weight. Weight must be > 0 and <= 20 kg." << endl;
+        return 1; // Exit with an error code
     }
 
     // TODO: validate input - distance must be >= 10 and <= 3000
     if (distance < 10 || distance > 3000)
     {
-        cout << "Invalid distance. Please enter a distance between 10 and 3000 miles.\n";
-        return 1;
+        cout << "Invalid distance. Distance must be >= 10 and <= 3000 miles." << endl;
+        return 1; // Exit with an error code
     }
 
     // TODO: determine rate based on weight
@@ -64,7 +77,6 @@ int main()
     // Use the following statements to print output
     cout << setprecision(2) << fixed;
     cout << "The shipping price for package is " << price << endl;
-    
 
     return 0;
 }
